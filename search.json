@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project_1",
+    "section": "",
+    "text": "아래는 R을 이용한 데이터 전처리 예제입니다. 문제와 답만 있습니다. 풀이 과정을 코드로 제출하세요. 제출 결과에 따라 다음 과정의 Project 2 난이도 조정이 됩니다.\ndefect 데이터 셋 다운로드\n5월부터 9월까지 일별 생산 물량이 10000개에서 나오는 불량데이터이다.\n세로선불량(defect_a), 가로선불량(defect_b), 명점불량(defect_c), 암점불량(defect_d)\n\n\nCode\nlibrary(tidyverse)\n\ndf &lt;- read.csv(\"./data/defect.csv\")\nhead(df )\n\n\n  defect_a defect_b defect_c defect_d Month Day\n1       41      190        7       67     5   1\n2       36      118        8       72     5   2\n3       12      149       13       74     5   3\n4       18      313       12       62     5   4\n5       NA       NA       14       56     5   5\n6       28       NA       15       66     5   6\n\n\n\n\n난이도 하\n\n\n1. 열별 결측치가 몇개가 있는지 표시하라.\n\n\ndefect_a defect_b defect_c defect_d    Month      Day \n      37        7        0        0        0        0 \n\n\n\n\n2. 월별 defect_a의 평균과 defect_c의 표준편차를 구하시오. (소수 첫째자리까지)\n\n\n# A tibble: 5 × 3\n  Month defect_a_평균 defect_c_표준편차\n  &lt;int&gt;         &lt;dbl&gt;             &lt;dbl&gt;\n1     5          23.6               3.5\n2     6          29.4               3.8\n3     7          59.1               3.1\n4     8          60                 3.4\n5     9          31.4               3.5\n\n\n\n\n3. 명점불량과 암점 불량을 더해서 픽셀불량(pixel_defect)이라는 새로운 열로 만들어라. 이때 픽셀불량이 가장 많이 나온 날은 몇월 몇일, 몇개가 나왔는지 표시하라.\npixel_defect = defect_c + defect_d\n\n\n  Month Day pixel_defect\n1     8  28          107\n\n\n  Month Day pixel_defect\n1     8  28          107\n\n\n\n\n\n\n난이도 중\n\n\n4. defect_b이 150 이상인 날 중에 8월~9월 총 몇일이나 되는가\n\n\n   n\n1 38\n\n\n\n\n5. defect_a 가 결측치가 있는 날 중에 월별 defect_c 의 중간값을 구하시오.(defect_c_중간값)\n\n\n# A tibble: 5 × 2\n  Month defect_c_중간값\n  &lt;int&gt;           &lt;int&gt;\n1     5              14\n2     6               9\n3     7              11\n4     8              12\n5     9              13\n\n\n\n\n6. 월별 defect 종류별 평균 갯수를 구하시오 (정수로 표시하시오)\n\n\n# A tibble: 5 × 5\n  Month defect_a_평균갯수 defect_b_평균갯수 defect_c_평균갯수 defect_d_평균갯수\n  &lt;int&gt;             &lt;dbl&gt;             &lt;dbl&gt;             &lt;dbl&gt;             &lt;dbl&gt;\n1     5                24                24                24                24\n2     6                29                29                29                29\n3     7                59                59                59                59\n4     8                60                60                60                60\n5     9                31                31                31                31\n\n\n\n\n\n\n난이도 상\n\n\n7. 일별 제품 1개당 나오는 총 불량율을 계산하여 월별 최대값을 구하라. (NA는 0으로 계산하라.)\ntotal_defect = (defect_a+defect_b+defect_c+defect_d)/10000\n\n\n# A tibble: 5 × 2\n  Month max_defect\n  &lt;int&gt;      &lt;dbl&gt;\n1     5     0.0432\n2     6     0.0466\n3     7     0.0492\n4     8     0.049 \n5     9     0.0378\n\n\n\n\n8. 총 불량갯수가 최소인 날은 몇월 몇일인가? (NA는 0으로 계산하라.)\ntotal_defect = (defect_a+defect_b+defect_c+defect_d)/10000\n\n\n  Month Day\n1     7   1\n\n\n\n\n9. 선불량 (가로선+세로선)이 pixel 불량(명점+암점) 보다 많은 날은 몇일 인가?(NA는 0으로 계산하라.)\n\n\n    n\n1 126"
+  },
+  {
+    "objectID": "Project_3.html",
+    "href": "Project_3.html",
+    "title": "Project_3",
+    "section": "",
+    "text": "아래는 R을 이용한 데이터 전처리 예제입니다. 문제와 답만 있습니다. 풀이 과정을 코드로 제출하세요. 제출 결과에 따라 다음 과정의 Project 3 난이도 조정이 됩니다.\n전압에 따른 패널 휘도 측정 결과 데이터 셋 다운로드"
+  },
+  {
+    "objectID": "Project_3.html#이론적-배경",
+    "href": "Project_3.html#이론적-배경",
+    "title": "Project_3",
+    "section": "이론적 배경",
+    "text": "이론적 배경\nOLED(Organic Light Emitting Diode) 디스플레이의 휘도는 주로 세 가지 핵심 전압에 의해 제어됩니다:\n\nELVDD (Positive Supply Voltage)\n\n패널의 양극(anode)에 인가되는 양의 전압\n일반적으로 약 5V 설정\n\nELVSS (Negative Supply Voltage)\n\n패널의 음극(cathode)에 인가되는 음의 전압\n보통 -1.5V 미만으로 설정\nELVSS 전압이 더 낮아질수록(음의 방향) 휘도가 증가\nELVSS 전압이 0V에 가까워질수록 휘도가 감소\n\nData 전압\n\n각 픽셀의 밝기를 제어\nOLED 구동 트랜지스터의 게이트에 인가"
+  },
+  {
+    "objectID": "Project_3.html#elvss-전압-레벨과-휘도-관계",
+    "href": "Project_3.html#elvss-전압-레벨과-휘도-관계",
+    "title": "Project_3",
+    "section": "ELVSS 전압 레벨과 휘도 관계",
+    "text": "ELVSS 전압 레벨과 휘도 관계\nELVSS는 일반적으로 DC 전압으로 공급되며, 약 -1.5V 미만의 값을 가집니다[3].\nELVSS 값의 변화에 따른 PMOS 휘도 영향:\n\nELVSS 값이 작아질 경우 (더 음의 방향으로): 휘도가 높아집니다. PMOS 트랜지스터의 소스-드레인 전압차가 증가하여 더 많은 전류가 흐르게 되고, 이는 OLED의 발광 강도를 증가시킵니다.\nELVSS 값이 커질 경우 (0V에 가까워질 때): 휘도가 낮아집니다. PMOS 트랜지스터의 소스-드레인 전압차가 감소하여 전류가 줄어들고, 이로 인해 OLED의 발광 강도가 감소합니다.\n\nPMOS 트랜지스터를 사용하는 OLED 픽셀 회로에서는 VGS가 VG-ELVDD로 결정되기 때문에, ELVSS의 변화가 직접적으로 트랜지스터의 동작에 영향을 미치며, 이는 결과적으로 OLED의 휘도를 조절하게 됩니다"
+  },
+  {
+    "objectID": "Project_3.html#측정-방법",
+    "href": "Project_3.html#측정-방법",
+    "title": "Project_3",
+    "section": "측정 방법",
+    "text": "측정 방법\n첨부된 이미지에서 보이는 것처럼, 패널은 3x3 매트릭스로 구성되어 있으며, 각 위치에서 휘도를 측정합니다. 측정은 특수 제작된 휘도계를 사용하여 수행됩니다."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "For questions, Please send them to the email address below.\nPlease use the heading [letuin] as the subject line.\nwaterfirst@snu.ac.kr"
+  },
+  {
+    "objectID": "Project_2.html",
+    "href": "Project_2.html",
+    "title": "Project_2",
+    "section": "",
+    "text": "아래는 R을 이용한 데이터 전처리 예제입니다. 문제와 답만 있습니다. 풀이 과정을 코드로 제출하세요. 제출 결과에 따라 다음 과정의 Project 3 난이도 조정이 됩니다.\n신뢰성 평가 결과 데이터 셋 다운로드\nOLED 패널의 신뢰성 평가 결과 데이터이다.\n이 신뢰성 평가는 다음과 같은 주요 변수들로 구성되어 있습니다:\n코드\nlibrary(patchwork)\nlibrary(corrplot)"
+  },
+  {
+    "objectID": "Project_2.html#문제-1-test_type별-passfail-의-샘플-수를-보여라.",
+    "href": "Project_2.html#문제-1-test_type별-passfail-의-샘플-수를-보여라.",
+    "title": "Project_2",
+    "section": "문제 1: Test_type별 Pass/Fail 의 샘플 수를 보여라.",
+    "text": "문제 1: Test_type별 Pass/Fail 의 샘플 수를 보여라.\n\n단계별 요구사항\n\n필수 패키지 로드\n\nlibrary(tidyverse)\nlibrary(plotly)\nlibrary(showtext)\nshowtext.auto()\n\n\n코드\nlibrary(tidyverse)\nlibrary(plotly)\nlibrary(showtext)\nshowtext.auto()\n\n\n\n\ndf 변수에 reliability_test.csv 를 불러와서 넣는다.(read.csv)\n앞 행 6개를 표시한다. (head)\n\n\n\n코드\ndf &lt;- read.csv(\"./data/reliability_test.csv\")\n\nhead(df)\n\n\n  Test_type         Panel Test_duration Result Sample_count\n1       HTS Flexible_OLED         1000h   Fail            4\n2       HTS Flexible_OLED         1000h   Pass          199\n3       HTS Flexible_OLED          500h   Fail            0\n4       HTS Flexible_OLED          500h   Pass          140\n5       HTS    Rigid_OLED         1000h   Fail          118\n6       HTS    Rigid_OLED         1000h   Pass            5\n\n\n\n\nTest 종류별 Pass/Fail 수를 보여준다.\n\n\n\n코드\ndf |&gt; \n  group_by(Test_type, Result) |&gt;\n  summarise(샘플수 = sum(Sample_count ))\n\n\n# A tibble: 8 × 3\n# Groups:   Test_type [4]\n  Test_type Result 샘플수\n  &lt;chr&gt;     &lt;chr&gt;   &lt;int&gt;\n1 HTS       Fail      122\n2 HTS       Pass      401\n3 TC        Fail      167\n4 TC        Pass      271\n5 THS       Fail      528\n6 THS       Pass      602\n7 TS        Fail      101\n8 TS        Pass      622\n\n\n\n\n이 결과를 막대 그래프로 시각화를 하라. (개별 그래프)\n\n\n\n코드\np1 &lt;- df |&gt; \n  group_by(Test_type, Result) |&gt;\n  summarise(샘플수 = sum(Sample_count )) |&gt; \n  ggplot(aes(x=Test_type, y=샘플수, fill=Result))+\n geom_bar(stat = \"identity\", position = \"dodge\") \n\nggplotly(p1)\n\n\n\n\n\n\n\n\n각 막대 그래프에 샘플수를 text로 표시하라.\n\n\n\n코드\np2 &lt;- df |&gt; \n  group_by(Test_type, Result) |&gt;\n  summarise(샘플수 = sum(Sample_count )) |&gt; \n  ggplot(aes(x=Test_type, y=샘플수, fill=Result))+\n  geom_bar(stat = \"identity\", position = \"dodge\")+\n  geom_text(aes(label = 샘플수), position = position_dodge(0.9),\n            vjust = -0.5) \n\nggplotly(p2)\n\n\n\n\n\n\n\n\n그래프 제목 (“신뢰성 종류별 Pass/Fail 샘플수”), X축(“신뢰성 평가 종류”), Y축(“샘플수”) 를 표시하라.\n\n\n\n코드\np3 &lt;- df |&gt; \n  group_by(Test_type, Result) |&gt;\n  summarise(샘플수 = sum(Sample_count )) |&gt; \n  ggplot(aes(x=Test_type, y=샘플수, fill=Result))+\n  geom_bar(stat = \"identity\", position = \"dodge\")+\n  geom_text(aes(label = 샘플수), position = position_dodge(0.9),\n            vjust = -0.5) +\n  labs(title = \"신뢰성 종류별 Pass/Fail 샘플수\",\n       x=\"신뢰성 평가 종류\",\n       y=\"샘플수\")\n\nggplotly(p3)"
+  },
+  {
+    "objectID": "Project_2.html#문제-2-test_duration별-passfail-시각화하시오",
+    "href": "Project_2.html#문제-2-test_duration별-passfail-시각화하시오",
+    "title": "Project_2",
+    "section": "문제 2: Test_duration별 Pass/Fail 시각화하시오",
+    "text": "문제 2: Test_duration별 Pass/Fail 시각화하시오\n\n단계별 요구사항\n\nHTS 와 THS의 신뢰성 평가에서 Test 시간에 따른 Rigid 패널과 Flexible 패널의 양품율을 보이시오 양품율 = Pass 샘플수 / (Pass 샘플수 + Fail 샘플수) * 100\n\n\n\n코드\ntable1 &lt;- df |&gt; \n  filter(Test_type %in% c(\"HTS\", \"THS\")) |&gt; \n  filter(Result ==\"Fail\") |&gt; \n  group_by(Test_type,Panel, Test_duration) |&gt; \n  summarise(n_Fail = sum(Sample_count))\n\ntable2 &lt;- df |&gt; \n  filter(Test_type %in% c(\"HTS\", \"THS\")) |&gt; \n  filter(Result ==\"Pass\") |&gt; \n  group_by(Test_type,Panel, Test_duration) |&gt; \n  summarise(n_Pass = sum(Sample_count))\n\n\n\ntable3 &lt;- left_join(table1,table2) |&gt; \n  mutate(양품율 = round(n_Pass/(n_Pass + n_Fail)*100,1))\n  \ntable3\n\n\n# A tibble: 8 × 6\n# Groups:   Test_type, Panel [4]\n  Test_type Panel         Test_duration n_Fail n_Pass 양품율\n  &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;          &lt;int&gt;  &lt;int&gt;  &lt;dbl&gt;\n1 HTS       Flexible_OLED 1000h              4    199   98  \n2 HTS       Flexible_OLED 500h               0    140  100  \n3 HTS       Rigid_OLED    1000h            118      5    4.1\n4 HTS       Rigid_OLED    500h               0     57  100  \n5 THS       Flexible_OLED 1000h             89     14   13.6\n6 THS       Flexible_OLED 500h              17    500   96.7\n7 THS       Rigid_OLED    1000h            387     13    3.2\n8 THS       Rigid_OLED    500h              35     75   68.2\n\n\n\n그룹화된 막대 그래프 사용하여 시각화 하시오. (x축은 Test_duration, y축은 양품율, Panel종류에 따라 색 구별, facet_wrap 은 Test_type)\n\n\n\n코드\np &lt;- table3 |&gt; \n  ggplot(aes(x = Test_duration, y =양품율, fill = Panel)) +\n  geom_bar(stat = \"identity\", position = \"dodge\")+\n  facet_wrap(~Test_type)\n  \nggplotly(p)\n\n\n\n\n\n\n\nx축에 500h, 1000h 순서로 나열 (fct_reorder)\n\n\n\n코드\np &lt;- table3 |&gt; \n  mutate(Test_duration = fct_reorder(Test_duration, -양품율)) |&gt; \n  ggplot(aes(x = Test_duration, y =양품율, fill = Panel)) +\n  geom_bar(stat = \"identity\", position = \"dodge\")+\n  facet_wrap(~Test_type)\n  \nggplotly(p)\n\n\n\n\n\n\n\nx축 이름: 테스트 시간(h), y축 이름: 양품율(%), 제목 : 테스트 조건별 양품율, theme_bw() 적용\n\n\n\n코드\np &lt;- table3 |&gt; \n  mutate(Test_duration = fct_reorder(Test_duration, -양품율)) |&gt; \n  ggplot(aes(x = Test_duration, y =양품율, fill = Panel)) +\n  geom_bar(stat = \"identity\", position = \"dodge\")+\n  geom_text(aes(label = 양품율), position = position_dodge(0.9),  vjust = -0.5) +\n  facet_wrap(~Test_type)+\n  labs(title = \"테스트 조건별 양품율\",\n       x = \"테스트 시간(h)\",\n       y = \"양품율(%)\",\n       fill = \"결과\") +\n  theme_bw()\n  \nggplotly(p)"
+  }
+]

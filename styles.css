@@ -1,0 +1,255 @@
+/* styles.css */
+
+
+
+/* ggplotly 반응형 그래프 컨테이너 크기 설정 */
+.reveal .plotly-graph-div {
+    width: 100% !important;
+    height: 500px !important;
+}
+
+/* ggplotly 그래프 여백 조정 */
+.reveal .plotly-graph-div .plot-container {
+    margin: 20px auto !important;
+}
+
+/* ggplotly 반응형 조정을 위한 미디어 쿼리 */
+@media screen and (max-width: 1200px) {
+    .reveal .plotly-graph-div {
+        height: 500px !important;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .reveal .plotly-graph-div {
+        height: 400px !important;
+    }
+}
+
+/* ggplotly 툴팁 크기 조정 */
+.reveal .plotly-graph-div .gtitle {
+    font-size: 24px !important;
+}
+
+/* ggplotly 범례 크기 조정 */
+.reveal .plotly-graph-div .legend {
+    font-size: 18px !important;
+}
+
+/* hover 시 툴팁 스타일 */
+.reveal .plotly-graph-div .hovertext {
+    font-size: 16px !important;
+}
+
+
+/* figure 크기 조정 */
+.reveal .slides figure {
+    height: 4.5in !important;
+    margin: 0 auto !important;
+}
+
+
+/* plot 이미지 크기 조정 */
+.reveal .slides img {
+    max-height: 4.5in !important;
+    width: auto !important;
+    margin: 0 auto !important;
+}
+
+
+/* code chunk 출력 높이 조정 */
+.reveal pre.sourceCode {
+    max-height: 4.0in !important;
+}
+
+/* 전체 슬라이드 여백 조정 */
+.reveal .slide-content {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* plot 전체 텍스트 크기 조정 */
+.reveal .plot-figure text {
+    font-size: 25px !important;
+}
+
+/* plot 제목 크기 */
+.reveal .plot-figure .title {
+    font-size: 30px !important;
+    font-weight: bold !important;
+}
+
+/* plot 축 레이블 크기 */
+.reveal .plot-figure .axis-label {
+    font-size: 25px !important;
+}
+
+/* plot 범례 텍스트 크기 */
+.reveal .plot-figure .legend-text {
+    font-size: 20px !important;
+}
+
+
+
+
+/* plot 캡션 스타일링 */
+.reveal figcaption {
+    font-size: 1em !important;
+    margin-top: 0.5em !important;
+}
+
+/* 전체 슬라이드 기본 폰트 크기 조정 */
+.reveal {
+font-size: 30px;
+}
+
+/* 기본 슬라이드 설정 */
+.reveal {
+    font-size: 32px;  /* 기본 폰트 크기를 조금 줄임 */
+    font-family: 'Noto Sans KR', sans-serif;  /* 한글 폰트 지정 */
+}
+
+/* 메인 타이틀 (h1) */
+.reveal h1 {
+    font-size: 2.5em;  /* 56px */
+    font-weight: 700;
+    margin-bottom: 0.3em;
+    color: #2c3e50;
+    line-height: 1.2;
+}
+
+/* 서브 타이틀 스타일 강화 */
+.reveal .subtitle {
+    font-size: 2.0em !important;  /* 50px */
+    font-weight: 600;
+    color: #34495e;
+    margin-top: 0.3em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+}
+
+/* 저자 스타일 추가 */
+.reveal .author {
+    font-size: 1.8em !important;  /* 39px */
+    font-weight: 500;
+    color: #2980b9;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+
+/* 서브 타이틀 (h2) - 주요 섹션 제목 */
+.reveal h2 {
+    font-size:2.0em;  /* 42px */
+    font-weight: 600;
+    margin-bottom: 0.4em;
+    color: #34495e;
+}
+
+/* 소제목 (h3) - 세부 내용 구분 */
+.reveal h3 {
+    font-size: 1.5em;  /* 34px */
+    font-weight: 500;
+    margin-bottom: 0.3em;
+    color: #455a64;
+}
+
+/* 본문 텍스트 */
+.reveal p {
+    font-size: 1.0em;  /* 28px */
+    line-height: 1.0;
+    margin-bottom: 1em;
+}
+
+/* 코드 블록 크기 조정 */
+.reveal pre {
+font-size: 0.7em;
+}
+.reveal code {
+font-size: 0.7em;
+}
+/* 그래프 컨테이너 크기 조정 */
+.plot-container {
+width: 80% !important;
+height: auto !important;
+}
+
+/* ggplot 그래프 크기 조정 */
+.ggplot {
+max-width: 100%;
+height: auto;
+}
+/* 리스트 아이템 크기 조정 */
+.reveal ul,
+.reveal ol {
+font-size: 0.8em;
+}
+/* callout 박스 크기 조정 */
+.callout {
+font-size: 0.8em;
+}
+/* 표 폰트 크기 조정 */
+.reveal table {
+font-size: 0.8em;
+}
+/* 각주 크기 조정 */
+.reveal .footer {
+font-size: 0.6em;
+}
+/* smaller 클래스가 적용된 콘텐츠의 크기 조정 */
+.reveal .smaller {
+font-size: 1.5em;
+}
+/* 이미지 최대 크기 제한 */
+.reveal img {
+max-width: 100%;
+height: auto;
+}
+/* 반응형 조정 */
+@media screen and (max-width: 1024px) {
+.reveal {
+font-size: 28px;
+}
+}
+@media screen and (max-width: 768px) {
+.reveal {
+font-size: 24px;
+}
+}
+
+
+/* 첫 슬라이드 제목과 부제목, 저자 특별 스타일 */
+.title-slide h1 {
+    font-size: 2.5em;  /* 62px */
+    margin-bottom: 0.2em;
+}
+
+.title-slide .subtitle {
+    font-size: 2.0em !important;  /* 50px */
+    color: #3498db;
+}
+
+.title-slide .author {
+    font-size: 1.6em !important;  /* 39px */
+    color: #2980b9;
+    margin-top: 0.7em;
+}
+
+/* 기존 geom_text 스타일 */
+.ggplot .geom_text text {
+  font-size: 1.6em !important;
+}
+
+/* geom_label 스타일 */
+.ggplot .geom_label text {
+  font-size: 1.6em !important;
+}
+
+
+
+
+.gt_table .gt_col_1 { width: 10% !important; }
+.gt_table .gt_col_2 { width: 25% !important; }
+.gt_table .gt_col_3 { width: 65% !important; }
